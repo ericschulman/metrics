@@ -9,7 +9,8 @@ def main():
 	#part a
 	df = pandas.read_stata(FNAME)
 	plt.figure()
-	df['educ'].plot.hist()
+	hist = df[(df.educ > 1)]
+	hist['educ'].plot.hist()
 	plt.savefig('part_a')
 
 	#part b-e
@@ -17,21 +18,26 @@ def main():
 	for y in CATEGORIES:
 		stats[y] = helper(df,y)
 
-	#part f-g
-	for y in CATEGORIES:
-		diff = stats[y][1] - stats[12][1]
-		se =  (stats[y][2]/stats[y][0])**(.5)
-		t_value = diff / se
-		stats[y].append(diff)
-		stats[y].append(se)
-		stats[y].append(t_value)
-
 	#write result to file
-	result = open("hw1_results.txt","w+")
-	result.write('num_obs,mean,var,q25,q50,q75,diff,se,tstat\n')
+	result = open("hw1_results.csv","w+")
+	result.write('num_obs,mean,var,q25,q50,q75\n')
 	for y in CATEGORIES:
-		result.write('%s,%s,%s,%s,%s,%s,%s,%s,%s\n'% tuple(stats[y]) )
+		result.write('%s,%s,%s,%s,%s,%s\n'% tuple(stats[y]) )
 
+	result.close()
+
+	#part f-g
+	result = open("hw1_results.tex","w+")
+	result.write('\\begin{tabular}{ c c c c c c } \\\\')
+	result.write(' Year 1 & Year 2 & Diff & SE & T-Value & Reject \\\\ \n \hline \n')
+	for y in CATEGORIES:
+		for x in CATEGORIES:
+			diff = stats[y][1] - stats[x][1]
+			se =  (stats[y][2]/stats[y][0])**(.5)
+			t_value = diff / se
+			reject = (t_value > 2.02) or (t_value < -2.02)
+			result.write('%s & %s & %s & %s & %s & %s \\\\ \n'% (y,x,diff,se,t_value,reject) )
+	result.write('\\end{tabular}')
 	result.close()
 
 
@@ -41,6 +47,7 @@ def helper(df,y):
 
 	plt.figure()
 	df['lwage'].plot.density()
+	plt.xlim(0, 7)
 	plt.savefig('part_b_%s'%y)
 	
 	mean = df['lwage'].mean()
@@ -67,8 +74,8 @@ def do_regression():
 	
 	#write result
 	model_result = sm.OLS(y,X).fit()
-	result_doc = open('hw1_reg.txt','w+')
-	result_doc.write( model_result.summary().as_text() )
+	result_doc = open('hw1_reg.tex','w+')
+	result_doc.write( model_result.summary().as_latex() )
 	result_doc.close()
 
 
