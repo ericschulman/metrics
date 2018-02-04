@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.17)  3 FEB 2018 14:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.17)  3 FEB 2018 18:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -211,6 +211,77 @@ Package: booktabs 2016/04/27 v1.618033 publication quality tables
 \@lastruleclass=\count119
 \@thisrulewidth=\dimen140
 )
+(/usr/share/texlive/texmf-dist/tex/latex/cmbright/cmbright.sty
+Package: cmbright 2005/04/13 v8.1 (WaS)
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 29.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/cmbr/m/n on input line 29.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmbr/m/n on input line 29.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 30.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/cmbrm/m/it on input line 30.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/cmbrm/m/it on input line 30.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmbrm/m/it --> OML/cmbrm/b/it on input line 31.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 32.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/cmbrs/m/n on input line 32.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/cmbrs/m/n on input line 32.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/cmbr/m/sl on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/cmbr/m/sl on input line 33.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/cmbr/bx/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmbr/bx/n on input line 34.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtl/m/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtl/m/n on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \alpha on input line 37.
+LaTeX Font Info:    Redeclaring math symbol \beta on input line 38.
+LaTeX Font Info:    Redeclaring math symbol \gamma on input line 39.
+LaTeX Font Info:    Redeclaring math symbol \delta on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \epsilon on input line 41.
+LaTeX Font Info:    Redeclaring math symbol \zeta on input line 42.
+LaTeX Font Info:    Redeclaring math symbol \eta on input line 43.
+LaTeX Font Info:    Redeclaring math symbol \theta on input line 44.
+LaTeX Font Info:    Redeclaring math symbol \iota on input line 45.
+LaTeX Font Info:    Redeclaring math symbol \kappa on input line 46.
+LaTeX Font Info:    Redeclaring math symbol \lambda on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \mu on input line 48.
+LaTeX Font Info:    Redeclaring math symbol \nu on input line 49.
+LaTeX Font Info:    Redeclaring math symbol \xi on input line 50.
+LaTeX Font Info:    Redeclaring math symbol \pi on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \rho on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \sigma on input line 53.
+LaTeX Font Info:    Redeclaring math symbol \tau on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \upsilon on input line 55.
+LaTeX Font Info:    Redeclaring math symbol \phi on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \chi on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \psi on input line 58.
+LaTeX Font Info:    Redeclaring math symbol \omega on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \varepsilon on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \vartheta on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \varpi on input line 62.
+LaTeX Font Info:    Redeclaring math symbol \varrho on input line 63.
+LaTeX Font Info:    Redeclaring math symbol \varsigma on input line 64.
+LaTeX Font Info:    Redeclaring math symbol \varphi on input line 65.
+LaTeX Info: Redefining \LaTeX on input line 129.
+LaTeX Info: Redefining \LaTeXe on input line 139.
+LaTeX Font Info:    Try loading font information for OT1+cmbr on input line 144
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/cmbright/ot1cmbr.fd
+File: ot1cmbr.fd 2005/04/13 v8.1 (WaS)
+))
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
@@ -251,18 +322,18 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 (./hw1_solution.aux)
 \openout1 = `hw1_solution.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 \c@lstlisting=\count123
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -358,64 +429,111 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-[1
+LaTeX Font Info:    Try loading font information for OML+cmbrm on input line 34
+.
+(/usr/share/texlive/texmf-dist/tex/latex/cmbright/omlcmbrm.fd
+File: omlcmbrm.fd 2005/04/13 v8.1 (WaS)
+)
+LaTeX Font Info:    Try loading font information for OMS+cmbrs on input line 34
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/cmbright/omscmbrs.fd
+File: omscmbrs.fd 2005/04/13 v8.1 (WaS)
+) [1
 
 {/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
-<part_a.png, id=14, 462.528pt x 346.896pt>
+<part_a.png, id=12, 462.528pt x 346.896pt>
 File: part_a.png Graphic file (type png)
  <use part_a.png>
-Package pdftex.def Info: part_a.png used on input line 121.
+Package pdftex.def Info: part_a.png used on input line 122.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
- [2]
-<part_b_12.png, id=19, 462.528pt x 346.896pt>
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[2] <part_b_12.png, id=18, 462.528pt x 346.896pt>
 File: part_b_12.png Graphic file (type png)
  <use part_b_12.png>
-Package pdftex.def Info: part_b_12.png used on input line 139.
+Package pdftex.def Info: part_b_12.png used on input line 140.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
- [3 <./part_a.png>] <part_b_16.png, id=24, 462.528pt x 346.896pt>
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[3 <./part_a.png>] <part_b_16.png, id=23, 462.528pt x 346.896pt>
 File: part_b_16.png Graphic file (type png)
- <use part_b_16.png>
-Package pdftex.def Info: part_b_16.png used on input line 141.
-(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
-<part_b_18.png, id=25, 462.528pt x 346.896pt>
+<use part_b_16.png>
+Package pdftex.def Info: part_b_16.png used on input line 142.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
+ <part_b_18.png, id=24, 462.528pt x 346.896pt>
 File: part_b_18.png Graphic file (type png)
- <use part_b_18.png>
-Package pdftex.def Info: part_b_18.png used on input line 143.
-(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
- [4 <./part_b_12.png> <./part_b_16.png>] <part_b_20.png, id=31, 462.528pt x 346
-.896pt>
-File: part_b_20.png Graphic file (type png)
 
-<use part_b_20.png>
-Package pdftex.def Info: part_b_20.png used on input line 145.
+<use part_b_18.png>
+Package pdftex.def Info: part_b_18.png used on input line 144.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
- [5 <./part_b_18.png> <./part_b_20.png>] (./hw1_results.tex) (./hw1_reg.tex [6]
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4 <./part_b_12.png> <./part_b_16.png>]
+<part_b_20.png, id=30, 462.528pt x 346.896pt>
+File: part_b_20.png Graphic file (type png)
+ <use part_b_20.png>
+Package pdftex.def Info: part_b_20.png used on input line 146.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[5 <./part_b_18.png> <./part_b_20.png>] (./hw1_results.tex) (./hw1_reg.tex
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6]) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-) [7]
-(./hw1_solution.aux) ) 
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7] (./hw1_solution.aux) ) 
 Here is how much of TeX's memory you used:
- 5173 strings out of 493069
- 74190 string characters out of 6138222
- 178828 words of memory out of 5000000
- 8627 multiletter control sequences out of 15000+600000
- 9917 words of font info for 36 fonts, out of 8000000 for 9000
+ 5238 strings out of 493069
+ 75642 string characters out of 6138222
+ 179108 words of memory out of 5000000
+ 8684 multiletter control sequences out of 15000+600000
+ 11479 words of font info for 41 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 38i,11n,43p,311b,1171s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on hw1_solution.pdf (7 pages, 171379 bytes).
+ 38i,11n,43p,311b,1173s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright/h
+fbr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright/hfbr17.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb>
+Output written on hw1_solution.pdf (7 pages, 153914 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
+ 67 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
