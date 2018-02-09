@@ -2,7 +2,7 @@ import pandas
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
 
-FNAME = 'cps09mar.dta'
+FNAME = '../cps09mar.dta'
 CATEGORIES = [12,16,18,20]
 
 def main():
