@@ -1,0 +1,176 @@
+\documentclass{article}
+
+%math stuff
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{listings}
+
+%bibliography/appendix
+\usepackage{cite}
+\usepackage[toc,page]{appendix}
+
+%figures
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+%General Formating
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{cmbright}
+\usepackage[letterpaper, portrait, margin=1.5in]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+%Header
+\lhead{Schulman}
+\rhead{Page \thepage}
+
+\title{Econometrics I Homework 1}
+\author{Eric Schulman}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Part I}
+
+\section{Part II}
+
+\begin{enumerate}[label=\alph*)]
+
+\item Below are the results of the regression described in part (a).
+
+\input{hw2_reg1.tex}
+
+\item Summing the residuals in Python effectively produces 0 with some floating point error. My last program output was $-1.56521018368e-10.
+$
+
+Again, they residuals multiplied with $X$ is effectively $0$ with some floating point error. $\langle -1.56560986e-10 \quad -1.82083681e-09 \quad -3.00428837e-09 \quad -7.82019924e-08 \rangle$
+
+\item 
+
+Below are the results of the regression described in part (c).
+
+\input{hw2_reg2.tex}
+
+The average product of the residuals and education is $0.940$. Obviously, this is non-zero as education was not included in the regression.
+
+
+\item
+
+Below are the results of the regression described in part (d).
+
+\input{hw2_reg3.tex}
+
+The average product of the new residuals and education is $10.396$. One would expect the product to be greater than zero based on the proof below.
+
+
+$$y'e$$
+$$= y'y - y'\hat{y}$$
+$$= (X'\hat{\beta} + \hat{e})'(X'\hat{\beta} + \hat{e}) - (X'\hat{\beta} + \hat{e})'(X'\hat{\beta}) $$
+Since $X$ and $\hat{e}$ are orthogonal,
+$$= (X'\hat{\beta})'(X'\hat{\beta}) + \hat{e}' \hat{e} - (X'\hat{\beta})'(X'\hat{\beta}) $$
+$$ = \hat{e}'\hat{e} \geq 0$$
+Since the matrix has quadratic form.
+
+\item
+
+Below are the results form (e). As you can see the coefficients on the residuals are the same.
+\input{hw2_reg4.tex}
+
+
+\item
+
+In (c) we calculated $M_{X_1}y$. 
+
+In (d) we calculated $M_{X_1}X_2$.
+
+In (e) we calculated $((M_{X_1}X_2)'M_{X_1}X_2)^{-1}((M_{X_1}X_2)'M_{X_1}y)$.
+
+Adding a column of $\iota$ as an intercept we have:
+
+$(\begin{bmatrix} M_{X_1}X_2 && \iota \end{bmatrix}'\begin{bmatrix} M_{X_1}X_2 && \iota \end{bmatrix})^{-1}((\begin{bmatrix} M_{X_1}X_2 && \iota \end{bmatrix})'M_{X_1}y)$
+
+$= \begin{bmatrix} (M_{X_1}X_2)'M_{X_1}X_2 && (M_{X_1}X_2)'\iota \\ \iota'M_{X_1}X_2 && \iota'\iota\end{bmatrix}^{-1}((\begin{bmatrix} M_{X_1}X_2 && \iota \end{bmatrix})'M_{X_1}y)$
+
+$\iota$ should be orthogonal to $M_{X_1}X_2$ as it was included in $X_1$ so
+
+$= \begin{bmatrix} (M_{X_1}X_2)'M_{X_1}X_2 && 0 \\ 0 && \iota'\iota \end{bmatrix}^{-1}\begin{bmatrix} (M_{X_1}X_2)'M_{X_1}y \\ 0 \end{bmatrix}$
+
+$= \begin{bmatrix} ((M_{X_1}X_2)'M_{X_1}X_2)^{-1}((M_{X_1}X_2)'M_{X_1}y) \\ 0 \end{bmatrix}$
+
+Since, $M_{X_1}$ is idempotent and symmetric, this is equivalent to
+
+$= \begin{bmatrix} (X_2' M_{X_1}X_2)^{-1}X_2' M_{X_1}y \\ 0 \end{bmatrix}$
+
+Finally, we proved in lecture that the top term is the coefficient on $X_2$
+
+$= \begin{bmatrix} \hat{\beta}_2 \\ 0 \end{bmatrix}$
+
+
+\end{enumerate}
+
+\section{Python Code}
+\begin{lstlisting}[language=Python]
+import pandas
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+
+FNAME = '../cps09mar.dta'
+
+def write_result(model,no):
+	result_doc = open('tex/hw2_reg%s.tex'%no,'w+')
+	result_doc.write( model.summary().as_latex() )
+	result_doc.close()
+
+def main():
+	#filter matrix and load it into memory
+	df = pandas.read_stata(FNAME)
+	X = df[ (df.female == 0) & (df.hisp == 1) & (df.race == 1) ]
+	print X['educ'].count()
+	y = X['lwage']
+
+	#part a
+	X1 = X.loc[:,('educ','exp')]
+	X1['exp_sq'] = X1['exp']**2
+	X1 = sm.add_constant(X1)
+	model1 = sm.OLS(y,X1).fit()
+	write_result(model1,1)
+	
+	#part b
+	e1 = model1.resid
+	print sum(e1)
+	print np.matmul(e1,X1)
+
+	#part c
+	X2 = X1.loc[:,('exp','exp_sq')]
+	X2 = sm.add_constant(X2)
+	model2 = sm.OLS(y,X2).fit()
+	write_result(model2,2)
+
+	#actual test part c
+	e2 = model2.resid
+
+	print np.matmul(e2,X1['educ'])/X1['educ'].count()
+
+	#part d
+	model3 = sm.OLS(X1['educ'],X2).fit()
+	write_result(model3,3)
+	e3 = model3.resid
+	print np.matmul(e3,X1['educ'])/X1['educ'].count()
+
+	#part e
+	model4 = sm.OLS(e2,e3).fit()
+	write_result(model4,4)
+
+	#part f
+	
+if __name__ == "__main__":
+	main()
+
+\end{lstlisting}
+
+\end{document}

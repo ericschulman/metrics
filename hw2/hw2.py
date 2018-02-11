@@ -12,14 +12,16 @@ def write_result(model,no):
 	result_doc.close()
 
 def main():
+	#filter matrix and load it into memory
 	df = pandas.read_stata(FNAME)
+	X = df[ (df.female == 0) & (df.hisp == 1) & (df.race == 1) ]
+	print X['educ'].count()
+	y = X['lwage']
 
 	#part a
-	X1 = df.loc[:,('educ','exp')]
+	X1 = X.loc[:,('educ','exp')]
 	X1['exp_sq'] = X1['exp']**2
 	X1 = sm.add_constant(X1)
-	y = df['lwage']
-	
 	model1 = sm.OLS(y,X1).fit()
 	write_result(model1,1)
 	
@@ -31,25 +33,23 @@ def main():
 	#part c
 	X2 = X1.loc[:,('exp','exp_sq')]
 	X2 = sm.add_constant(X2)
-
-	#write result
 	model2 = sm.OLS(y,X2).fit()
 	write_result(model2,2)
 
 	#actual test part c
 	e2 = model2.resid
-	print np.matmul(e2,X1['educ'])
+
+	print np.matmul(e2,X1['educ'])/X1['educ'].count()
 
 	#part d
 	model3 = sm.OLS(X1['educ'],X2).fit()
-	write_result(model2,2)
-
+	write_result(model3,3)
 	e3 = model3.resid
-	print np.matmul(e3,X1['educ'])
+	print np.matmul(e3,X1['educ'])/X1['educ'].count()
 
 	#part e
-	model4 = sm.OLS(e2,e3)
-	write_result(model2,2)
+	model4 = sm.OLS(e2,e3).fit()
+	write_result(model4,4)
 
 	#part f
 	
