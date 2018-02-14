@@ -25,17 +25,13 @@
 \lhead{Schulman}
 \rhead{Page \thepage}
 
-\title{Econometrics I Homework 1}
+\title{Econometrics I Empircial Question}
 \author{Eric Schulman}
 \date{\today}
 
 \begin{document}
 
 \maketitle
-
-\section{Part I}
-
-\section{Part II}
 
 \begin{enumerate}[label=\alph*)]
 
@@ -66,12 +62,12 @@ Below are the results of the regression described in part (d).
 The average product of the new residuals and education is $10.396$. One would expect the product to be greater than zero based on the proof below.
 
 
-$$y'e$$
-$$= y'y - y'\hat{y}$$
-$$= (X'\hat{\beta} + \hat{e})'(X'\hat{\beta} + \hat{e}) - (X'\hat{\beta} + \hat{e})'(X'\hat{\beta}) $$
+$$ye'$$
+$$= yy' - y\hat{y}'$$
+$$= (X\hat{\beta} + \hat{e})(X\hat{\beta} + \hat{e})' - (X\hat{\beta} + \hat{e})(X\hat{\beta})' $$
 Since $X$ and $\hat{e}$ are orthogonal,
-$$= (X'\hat{\beta})'(X'\hat{\beta}) + \hat{e}' \hat{e} - (X'\hat{\beta})'(X'\hat{\beta}) $$
-$$ = \hat{e}'\hat{e} \geq 0$$
+$$= (X\hat{\beta})(X\hat{\beta})' + \hat{e} \hat{e}' - (X\hat{\beta})(X\hat{\beta})' $$
+$$ = \hat{e}\hat{e}' \geq 0$$
 Since the matrix has quadratic form.
 
 \item
