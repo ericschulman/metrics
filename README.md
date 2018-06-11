@@ -1,2 +1,4 @@
 # metrics
-Python Code for UTexas Metrics I, plus lectures and stuff
+Python Code for UTexas Metrics I and Metrics II
+
+Plus some bonus stuff from Hansen's book
