@@ -24,15 +24,12 @@ output <- capture.output(stargazer(fit_a, title='Murder Rate', align=TRUE, type 
 
 fit_b <-  plm(mrdrte ~ exec + unem , data=df, index=c("id", "year"), model="within")
 
-#do cluster SEs (like STATA)
-G <- length(unique(df$id))
-N <- length(df$id)
-dfa <- (G/(G - 1)) * (N - 1)/fit_b$df.residual 
 # display with cluster VCE and df-adjustment
-cluster_vcov <- dfa * vcovHC(fit_b, type = "HC0", cluster="group")
+cluster_vcov <- vcovHC(fit_b, type = "HC1", cluster="group")
 fit_b2 <- coeftest(fit_b, vcov = cluster_vcov)
 output <- capture.output(stargazer(fit_b2, title='Murder Rate', align=TRUE, type = "latex", out='writeup/part_b.tex' ,no.space=TRUE))
 
+print(fit_b2)
 
 #Part c ---------------------------
 fit_c <- lm(mrdrte ~ exec + unem + factor(id) ,df)
