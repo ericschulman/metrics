@@ -24,6 +24,8 @@ output <- capture.output(stargazer(fit_a, title='Murder Rate', align=TRUE, type 
 
 fit_b <-  plm(mrdrte ~ exec + unem , data=df, index=c("id", "year"), model="within")
 
+output <- capture.output(stargazer(fit_b, title='Murder Rate', align=TRUE, type = "latex", out='writeup/part_b0.tex' ,no.space=TRUE))
+
 # display with cluster VCE and df-adjustment
 cluster_vcov <- vcovHC(fit_b, type = "HC1", cluster="group")
 fit_b2 <- coeftest(fit_b, vcov = cluster_vcov)
