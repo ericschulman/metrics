@@ -1,6 +1,6 @@
-# Solutions for Econometrics I at UT Austin
+# Solutions and code for Econometrics I at UT Austin
 
-Solutions for textbook exercises, notes, and code from weekly TA sessions for first year econometrics. The exercises solved and corresponding textbooks are listed by week.
+Solutions for textbook exercises, notes, and code from weekly TA sessions for first year Ph.D. econometrics at the University of Texas at Austin. The exercises solved and corresponding textbooks are listed by week.
 
 
 ## Probability Theory
