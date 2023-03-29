@@ -1,0 +1,337 @@
+\documentclass{article}
+
+%math stuff
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{listings}
+
+%bibliography/appendix
+\usepackage{cite}
+\usepackage[toc,page]{appendix}
+
+%figures
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+
+%General Formating
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{cmbright}
+\usepackage[letterpaper, portrait, margin=1in]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+%Header
+\lhead{Schulman}
+\rhead{Page \thepage}
+\cfoot{}
+
+\title{Homework 2}
+\author{Eric Schulman}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Part 1}
+
+\begin{lstlisting}
+. program genest
+  1. drop _all
+  2. set obs 50
+  3. gen eps = rnormal()
+  4. gen x = 3 + 2*rnormal()
+  5. gen y = -2 + 1.5*x + eps
+  6. regress y x
+  7. end
+
+\end{lstlisting}
+
+
+\section{Part 2}
+
+Below is the output
+
+\begin{lstlisting}
+. genest
+number of observations (_N) was 0, now 50
+
+      Source |       SS           df       MS      Number of obs   =        50
+-------------+----------------------------------   F(1, 48)        =    294.26
+       Model |  324.356864         1  324.356864   Prob > F        =    0.0000
+    Residual |  52.9089918        48  1.10227066   R-squared       =    0.8598
+-------------+----------------------------------   Adj R-squared   =    0.8568
+       Total |  377.265856        49  7.69930318   Root MSE        =    1.0499
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |    1.45453   .0847921    17.15   0.000     1.284044    1.625016
+       _cons |  -1.964622   .2648232    -7.42   0.000    -2.497084   -1.432159
+------------------------------------------------------------------------------
+
+\end{lstlisting}
+
+\section{Part 3}
+\begin{lstlisting}
+. set seed 1
+
+. simulate est = _b[x] se = _se[x], reps(200): genest
+
+      command:  genest
+          est:  _b[x]
+           se:  _se[x]
+
+Simulations (200)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+..................................................   100
+..................................................   150
+..................................................   200
+
+. summarize
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+         est |        200    1.506635    .0726041    1.26415   1.705211
+          se |        200    .0720119    .0104828   .0484777   .1050481
+\end{lstlisting}
+
+Using the output we can answer the questions
+
+\begin{enumerate}[label=(\alph*)]
+\item The average is 1.5066 with a deviation of 0.0726
+\item The average standard error is 0.0720
+\item They are roughly the same
+\end{enumerate}
+
+
+\section{Part 4}
+\begin{lstlisting}
+. program genestboot
+  1. drop _all
+  2. set obs 50
+  3. gen eps = rnormal()
+  4. gen x = 3 + 2*rnormal()
+  5. gen y = -2 + 1.5*x + eps
+  6. regress y x, vce(bootstrap)
+  7. end
+\end{lstlisting}
+
+
+\section{Part 5}
+\begin{lstlisting}
+. genestboot
+number of observations (_N) was 0, now 50
+(running regress on estimation sample)
+
+Bootstrap replications (50)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+
+Linear regression                               Number of obs     =         50
+                                                Replications      =         50
+                                                Wald chi2(1)      =     713.00
+                                                Prob > chi2       =     0.0000
+                                                R-squared         =     0.9051
+                                                Adj R-squared     =     0.9031
+                                                Root MSE          =     1.0001
+
+------------------------------------------------------------------------------
+             |   Observed   Bootstrap                         Normal-based
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   1.611104   .0603361    26.70   0.000     1.492847     1.72936
+       _cons |   -2.35602   .2148256   -10.97   0.000     -2.77707    -1.93497
+------------------------------------------------------------------------------
+
+\end{lstlisting}
+
+
+\section{Part 6}
+\begin{lstlisting}
+. set seed 1
+
+. simulate estboot = _b[x] seboot = _se[x], reps(200): genestboot
+
+      command:  genestboot
+      estboot:  _b[x]
+       seboot:  _se[x]
+
+Simulations (200)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+..................................................   100
+..................................................   150
+..................................................   200
+
+. summarize
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+     estboot |        200    1.495849     .069865   1.315208   1.722901
+      seboot |        200    .0712221    .0156659   .0399135   .1229222
+
+\end{lstlisting}
+
+Using the output we can answer the questions
+
+\begin{enumerate}[label=(\alph*)]
+\item The average is 1.4958. It is very close to the average from question 3 because the random variable was generated using the same procedure. As a result, it has the same expected value.
+\item The standard deviation is 0.6987 and the average of the bootstrap standard errors is 0.0712.
+\item They are roughly the same
+\end{enumerate}
+
+\section{Part 7}
+\begin{lstlisting}
+. program genestiv
+  1. drop _all
+  2. set obs 50
+  3. matrix C = (1, .1 \ .1, 1)
+  4. drawnorm eps1 eps2, n(50) corr(C)
+  5. gen z = rnormal(0,sqrt(3))
+  6. gen x = 3 + z + eps1
+  7. gen y = -2 + 1.5*x + eps2
+  8. ivregress 2sls y (x = z)
+  9. end
+
+\end{lstlisting}
+
+\section{Part 8}
+\begin{lstlisting}
+. genestiv
+number of observations (_N) was 0, now 50
+
+Instrumental variables (2SLS) regression          Number of obs   =         50
+                                                  Wald chi2(1)    =     410.82
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.9098
+                                                  Root MSE        =     .94339
+
+------------------------------------------------------------------------------
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |    1.52849   .0754113    20.27   0.000     1.380686    1.676293
+       _cons |  -2.052174   .2502765    -8.20   0.000    -2.542706   -1.561641
+------------------------------------------------------------------------------
+Instrumented:  x
+Instruments:   z
+
+\end{lstlisting}
+
+\section{Part 9}
+\begin{lstlisting}
+. set seed 1
+
+. simulate estiv = _b[x] seiv = _se[x], reps(200): genestiv
+
+      command:  genestiv
+        estiv:  _b[x]
+         seiv:  _se[x]
+
+Simulations (200)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+..................................................   100
+..................................................   150
+..................................................   200
+
+. summarize
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+       estiv |        200    1.495105    .0826352   1.231686    1.73896
+        seiv |        200    .0827737    .0147824   .0481943   .1465963
+        
+\end{lstlisting}
+
+\begin{enumerate}[label=(\alph*)]
+\item The average is 1.4951. The standard deviation is 0.0826
+\item The standard error's average is 0.08277
+\item They are roughly the same. 
+\end{enumerate}
+
+\section{Part 10}
+\begin{lstlisting}
+. program genestivboot
+  1. drop _all
+  2. set obs 50
+  3. matrix C = (1, .1 \ .1, 1)
+  4. drawnorm eps1 eps2, n(50) corr(C)
+  5. gen z = rnormal(0,sqrt(3))
+  6. gen x = 3 + z + eps1
+  7. gen y = -2 + 1.5*x + eps2
+  8. ivregress 2sls y (x = z), vce(bootstrap)
+  9. end
+
+\end{lstlisting}
+
+\section{Part 11}
+\begin{lstlisting}
+. genestivboot
+number of observations (_N) was 0, now 50
+(running ivregress on estimation sample)
+
+Bootstrap replications (50)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+
+Instrumental variables (2SLS) regression          Number of obs   =         50
+                                                  Wald chi2(1)    =     236.68
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.8961
+                                                  Root MSE        =     .90743
+
+------------------------------------------------------------------------------
+             |   Observed   Bootstrap                         Normal-based
+           y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+           x |   1.362522   .0885646    15.38   0.000     1.188938    1.536105
+       _cons |  -1.892268   .2429807    -7.79   0.000    -2.368501   -1.416034
+------------------------------------------------------------------------------
+Instrumented:  x
+Instruments:   z
+
+\end{lstlisting}
+
+\section{Part 12}
+\begin{lstlisting}
+
+. set seed 1
+
+. simulate estivboot = _b[x] seivboot = _se[x], reps(200): genestivboot
+
+      command:  genestivboot
+    estivboot:  _b[x]
+     seivboot:  _se[x]
+
+Simulations (200)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+..................................................    50
+..................................................   100
+..................................................   150
+..................................................   200
+
+. summarize
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+   estivboot |        200    1.489636    .0865869   1.277416    1.69758
+    seivboot |        200    .0861209    .0219406   .0393325    .194288
+
+
+\end{lstlisting}
+
+\begin{enumerate}[label=(\alph*)]
+\item The average is 1.489. It is very close to the average from question 9 because the random variable was generated using the same procedure. As a result, it has the same expected value.
+\item The standard deviation is 0.0865 and the average of the bootstrap standard errors is 0.0861.
+\item They are roughly the same
+\end{enumerate}
+
+
+
+
+
+\end{document}
