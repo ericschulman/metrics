@@ -16,9 +16,8 @@ time employed.
 
 ## Notebooks
 
-* `panel_ols.ipynb` Notes on pre-trend plots in Python for differences and differences with average treatment effect on the treated interpretation of differences in differences (Work in progress).
-* `pre-trends.ipynb` Notes on the within transformation in Python to estimate fixed effects regression. Code included to perform the transformation. For a more complete fixed effects package see [this repo](https://bashtage.github.io/linearmodels/panel/panel/linearmodels.panel.model.PanelOLS.html).
-
+* `panel_ols.ipynb` Notes on the within transformation in Python to estimate fixed effects regression. Code included to perform the transformation. For a more complete fixed effects package see [this repo](https://bashtage.github.io/linearmodels/panel/panel/linearmodels.panel.model.PanelOLS.html).
+* `pre-trends.ipynb`  Notes on pre-trend plots in Python for differences and differences with average treatment effect on the treated interpretation of differences in differences (Work in progress).
 
 ## Section notes from  Econometrics I at UT Austin
 
