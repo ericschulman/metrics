@@ -13,6 +13,7 @@ time employed.
 * `wagepan.dta` data from [Vella and Verbeek 1998](https://www.jstor.org/stable/223257) on wages.
 * `MROZ.DTA` data on wages and marriage from [Mroz 1987](https://www.jstor.org/stable/1911029).
 * `bwght.dta` data on birth weight and cigarettes.
+* `public.dat` is data from [Card and Krueger 1994](https://davidcard.berkeley.edu/papers/njmin-aer.pdf). There is detailed documentation for this data [here](https://davidcard.berkeley.edu/data_sets.html).
 
 ## Notebooks
 
