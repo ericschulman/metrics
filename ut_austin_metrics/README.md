@@ -1,59 +1,53 @@
-# Econometrics Notes, Code, and Selected Topics
+# Solutions and code for Econometrics
 
-This repository collects econometrics notes, simulation notebooks, and teaching materials that I have written over the past few years. It started as a place to organize TA materials and solutions for first-year Ph.D. econometrics at UT Austin, and has since expanded to include exploratory notebooks on probability metrics, asymptotics, likelihood theory, and IV/shift-share designs.
+Solutions for textbook exercises, notes, and code some of which are from weekly TA sessions for first year Ph.D. econometrics at the University of Texas at Austin. The exercises solved and corresponding textbooks are listed by week.
 
-## Repository Structure
+## Datasets
 
-```text
-.
-├── selected_topics/
-└── ut_austin_metrics/
-```
+The `data` folder contains miscellaneous data sets from various econometrics textbooks.
+* `Card1995.dta` data on [Card 1995's paper](https://davidcard.berkeley.edu/papers/geo_var_schooling.pdf) using geographic variation as an instrument for college attendance.
+* `cps09mar.dta` From the March 2009 CPS survey. Individuals with non-allocated variables who were full-
+time employed.
+* `murder_oldstata.dta` This is data on the murder rate which correpsonds to [Wooldridge Problem 10.10](https://rdrr.io/cran/wooldridge/man/murder.html)
+* `Nerlove1963.dta` data from [Nerlove's analysis of production functions](https://hhstokes.people.uic.edu/ftp/e535/Nerlove_1955.pdf) and returns to scale.
+* `wagepan.dta` data from [Vella and Verbeek 1998](https://www.jstor.org/stable/223257) on wages.
+* `MROZ.DTA` data on wages and marriage from [Mroz 1987](https://www.jstor.org/stable/1911029).
+* `bwght.dta` data on birth weight and cigarettes.
+* `public.dat` is data from [Card and Krueger 1994](https://davidcard.berkeley.edu/papers/njmin-aer.pdf). There is detailed documentation for this data [here](https://davidcard.berkeley.edu/data_sets.html).
 
-## `selected_topics/`
+## Notebooks
 
-This folder contains shorter exploratory notebooks written to build intuition for specific econometric or probability concepts. Most are simulation- and visualization-based and are still a work in progress.
+* `panel_ols.ipynb` Notes on the within transformation in Python to estimate fixed effects regression. Code included to perform the transformation. For a more complete fixed effects package see [this repo](https://bashtage.github.io/linearmodels/panel/panel/linearmodels.panel.model.PanelOLS.html).
+* `pre-trends.ipynb`  Notes on pre-trend plots in Python for differences and differences with average treatment effect on the treated interpretation of differences in differences (Work in progress).
 
-- `info_matrix_equiv`  
-  Illustrates the Information Matrix Equality in a simple normal likelihood model. It compares the Hessian-based information term and the outer product of scores under correct specification and misspecification.
+## Section notes from  Econometrics I at UT Austin
 
-- `iterated_log`  
-  Simulates log-likelihood ratio behavior across increasing sample sizes. It compares different normalizations and overlays confidence-sequence-style boundaries related to iterated logarithm behavior.
+### Probability Theory
 
-- `prohorov_ex`  
-  Gives a numerical illustration of the Prokhorov distance between probability distributions. The goal is to build intuition for weak convergence and how Prokhorov distance differs from more familiar metrics like the Kolmogorov distance.
+Textbook: [Introduction to Econometrics by Bruce Hansen](https://www.ssc.wisc.edu/~bhansen/probability/Probability.pdf) 
 
-- `shift_share_with_explanations`  
-  Explores shift-share/Bartik instruments through simulation. It compares standard IV/GMM approaches with shift-share-style weighting to show how different instrument weights can affect bias when some instruments are more endogenous than others.
+[Week 1](https://drive.google.com/file/d/11fh6Y5qc9ozpN3XoEdJV8W7wWSiYGL3J/view): Exercises 1.1, 1.2, 1.6, 1.8, 1.10, 1.11, 1.17, 1.22
 
-## `ut_austin_metrics/`
+[Week 2](https://drive.google.com/file/d/1gwU459V-tTRUfZcSWXax_bKrf1FHu1gq/view): Exercises 1.5, 1.12, 1.14, 1.19, 1.21, 2.1, 2.8, 2.13, 3.1
 
-This folder contains the original teaching-oriented materials from my time as a TA for first-year Ph.D. econometrics at the University of Texas at Austin. It includes solved textbook exercises, weekly section notes, datasets, and applied econometrics notebooks.
+[Week 3](https://drive.google.com/file/u/1/d/1Imdy4YAem0ksBnNsXG5eSQvd5bajuLeN/view?usp=sharing): Exercises 2.2, 2.6, 2.11, 2.14, 3.2,3.3
 
-The folder is organized as:
+[Week 4](https://drive.google.com/file/d/1zbEXaAiJmsMFKHM_kiZUlCYaRS1X-SO-/view): Exercises 3.6, 3.11, 4.1, 4.6, 4.7, 4.8, 4.9, 4.14, 4.15
 
-```text
-ut_austin_metrics/
-├── data/
-├── homeworks/
-├── ta_sections/
-└── notebooks/
-```
+### Estimation and Inference with Regression models
 
-- `data/`  
-  Miscellaneous datasets from econometrics textbooks and applied papers, including examples used for IV, panel data, labor economics, and difference-in-differences exercises.
+Textbook: [Econometrics by Bruce Hansen](https://www.ssc.wisc.edu/~bhansen/econometrics/Econometrics.pdf)
 
-- `homeworks/`  
-  Homework-related materials and solutions for econometrics exercises.
+[Week 6](https://drive.google.com/file/d/1GRaG9PAFMMUbLi2z6zy8gdza29yV6tQA/view):  Exercises 2.4, 2.5, 2.14, 3.10, 3.22
 
-- `ta_sections/`  
-  Weekly TA section notes and solved exercises for first-year Ph.D. econometrics. These cover probability theory, estimation, inference, regression, GMM/IV, and related topics.
+[Week 7](https://drive.google.com/file/d/1UIaRnnwez5DU6aQjsLkImBLXlchJ9QEo/view):  Exercises 2.16, 2.21, 3.4, 3.11, 3.19, 3.23
 
-- `notebooks/`  
-  Python notebooks for applied and computational econometrics examples, such as fixed effects estimation and pre-trend plots.
+[Week 8](https://drive.google.com/file/d/1vRlsODtfehkVLiwo1BeifQGLHMa8V07T/view):  Exercises 4.1, 4.7, 4.23, 7.9, 7.14
 
-For more detail, see the README inside `ut_austin_metrics/`, which lists datasets, textbook references, weekly exercises, and links to section notes.
+[Week 9](https://drive.google.com/file/u/1/d/1b0I8oeFUREYIDkzNzSkSjfYD6m6qOuCe/view?usp=sharing):  Exercises 4.7, 4.20, 7.11, 7.20, 7.28
 
-## Status
+[Week 10](https://drive.google.com/file/d/1genKScRckCQvD-Sy1rczPJEyU8asorgs/view):  Exercises 8.2, 8.3, 9.1, 9.2, 9.4
 
-This repository is mainly for organizing personal notes, teaching materials, and exploratory code. Some notebooks are polished, while others are rougher and intended primarily for intuition-building.
+[Week 11](https://drive.google.com/file/d/1JzzBgGflhAdFZ4EkjwTb6KqqtbohesDR/view):  Exercises 8.19, 8.22, 9.7, 9.8, 9.17, 9.20, 12.3, 12.8
+
+[Week 12](https://drive.google.com/file/u/1/d/1npdv2oAn8IcoYnSaR3CstfcOCGQ1j_Ya/view?usp=sharing): Exercises 12.7, 13.13
