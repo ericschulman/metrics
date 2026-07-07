@@ -1,39 +1,63 @@
 # ============================================================
-# Repo-specific rule:
-#   In selected_topics/, do NOT track bulky artifacts (data/pdfs/tex/etc).
-#   These filetypes are still allowed elsewhere (e.g., ut_austin_metrics/).
+# Global ignores (entire repo)
 # ============================================================
 
-# Data files
-selected_topics/**/*.csv
-selected_topics/**/*.tsv
-selected_topics/**/*.dta
-selected_topics/**/*.sav
-selected_topics/**/*.parquet
-selected_topics/**/*.feather
-selected_topics/**/*.xlsx
-selected_topics/**/*.xls
+# Jupyter
+**/.ipynb_checkpoints/
 
-# TeX / LaTeX build + sources
-selected_topics/**/*.tex
-selected_topics/**/*.bib
-selected_topics/**/*.aux
-selected_topics/**/*.bbl
-selected_topics/**/*.blg
-selected_topics/**/*.fdb_latexmk
-selected_topics/**/*.fls
-selected_topics/**/*.log
-selected_topics/**/*.out
-selected_topics/**/*.synctex*
-selected_topics/**/*.toc
+# Bulky artifacts (ignore everywhere by default)
+*.csv
+*.tsv
+*.dta
+*.sav
+*.parquet
+*.feather
+*.xlsx
+*.xls
 
-# Documents
-selected_topics/**/*.pdf
+*.pdf
 
-# Common archives (often used for sharing data/output)
-selected_topics/**/*.zip
-selected_topics/**/*.tar
-selected_topics/**/*.tar.gz
-selected_topics/**/*.tgz
-selected_topics/**/*.gz
-selected_topics/**/*.7z
+*.tex
+*.bib
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex*
+*.toc
+
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.7z
+
+
+# ============================================================
+# Exception: allow these filetypes under ut_austin_metrics/
+# ============================================================
+
+!ut_austin_metrics/**/*.csv
+!ut_austin_metrics/**/*.tsv
+!ut_austin_metrics/**/*.dta
+!ut_austin_metrics/**/*.sav
+!ut_austin_metrics/**/*.parquet
+!ut_austin_metrics/**/*.feather
+!ut_austin_metrics/**/*.xlsx
+!ut_austin_metrics/**/*.xls
+
+!ut_austin_metrics/**/*.pdf
+
+!ut_austin_metrics/**/*.tex
+!ut_austin_metrics/**/*.bib
+
+!ut_austin_metrics/**/*.zip
+!ut_austin_metrics/**/*.tar
+!ut_austin_metrics/**/*.tar.gz
+!ut_austin_metrics/**/*.tgz
+!ut_austin_metrics/**/*.gz
+!ut_austin_metrics/**/*.7z
